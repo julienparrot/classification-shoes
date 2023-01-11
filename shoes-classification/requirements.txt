@@ -1,0 +1,12 @@
+Flask==2.2.2
+h5py==3.7.0
+keras==2.11.0
+Pillow==9.4.0
+redis==4.4.1
+tensorboard==2.11.0
+tensorboard-data-server==0.6.1
+tensorboard-plugin-wit==1.8.1
+tensorflow==2.11.0
+tensorflow-estimator==2.11.0
+tensorflow-io-gcs-filesystem==0.29.0
+

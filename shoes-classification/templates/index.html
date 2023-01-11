@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href={{url_for('static' , filename='css/normalize.css' )}}>
+    <link rel="stylesheet" href={{url_for('static' , filename='css/grid.css' )}}>
+    <link rel='stylesheet' href={{url_for('static' , filename='css/style.css' )}}>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,300&display=swap"
+        rel="stylesheet" type='text/css'>
+    <title>Image Classification WebApp</title>
+    <meta name="keywords" content="cutom file input, styling, label, cross-browser, accessible, input type file" />
+
+    <style>
+        .content {
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .bg-img {
+            width: 100%;
+            height: 100vh;
+            background-image:  url('static/css/background.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        th {
+            text-align: center;
+            font-size: 20px;
+        }
+
+        td {
+            text-align: center;
+            font-size: 18px;
+        }
+    </style>
+
+
+</head>
+
+<body>
+    <div class="bg-img">
+        <div class="content">
+            <div class="index-main">
+
+                <div style="width : 100%; padding-top : 5%;">
+                    <div class="header-content">
+                        <h1 style="text-align: center;color: white"><span class="header-content-text">Nike
+                                Classification Model</span></h1>
+                    </div>
+                </div>
+
+                <div class="upload-section">
+
+                    <div style="text-align: center;">
+                        <form method="post" action="/predict" enctype="multipart/form-data">
+                            <input class="file-form-input" name='data' type='file' accept="image/*">
+                            <button  class="btn btn-success btn-lg" type="submit" value="submit">Prédire</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="info">
+                
+                    <row style="width: 100% ; display: flex; justify-content: center; text-align: center;color: white">
+                        <h3 class="header-text">Modèle de Prédiction</h3>
+                    </row>
+                    <row style="width: 100%; display: flex; justify-content: center; text-align: center;color: white">
+                        <table class="table-bordered text-light table-custom ">
+                            <tr>
+                                <th>Class</th>
+                                <th>Probability</th>
+                            </tr>
+                            <tr>
+                                <td>{{classe_name}}</td>
+                                <td>{{score}} %</td>
+                            </tr>
+                        </table>
+                    </row>
+                </div>
+
+                <div class="footer">
+                    <div class="header-content-sub">
+                        <p style="text-align: center;color: white" class="header-content-info">Ce modèle est underfitting car il n'a pas été entraîné suffisamment sur les données d'entraînement et ne peut pas capturer les
+                        nuances et les relations complexes dans les données. Cela peut entraîner une performance inférieure sur des données de
+                        test ou des données réelles.</p>
+                    </div>
+                    <div class="header-content-sub">
+                        <p style="text-align: center;color:orange" class="header-content-info">Projet M2 IOT Julien
+                            Parrot</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
